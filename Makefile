@@ -76,16 +76,6 @@ gcov_report:
 	genhtml -o report $(TEST_TARG).info
 	rm -f *.gcda *.gcno *.info $(TEST_TARG)
 
-check_linters:
-	cp ../materials/linters/.clang-format ./.clang-format
-	clang-format -n $(ALL_SRC_OBJ) $(ALL_SRC_H) $(ALL_TESTS_OBJ) $(ALL_TESTS_H)
-	rm -rf .clang-format
-
-fix_linters:
-	cp ../materials/linters/.clang-format ./.clang-format
-	clang-format -i $(ALL_SRC_OBJ) $(ALL_SRC_H) $(ALL_TESTS_OBJ) $(ALL_TESTS_H)
-	rm -rf .clang-format
-
 clean_lib:
 	rm -f *.[oa]
 
